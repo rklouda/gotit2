@@ -2,7 +2,7 @@
 // # SimpleServer
 //
 // A simple chat server using Socket.IO, Express, and Async.
-//
+// 
 var http = require('http');
 var path = require('path');
 
