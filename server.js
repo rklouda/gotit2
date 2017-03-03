@@ -78,7 +78,11 @@ function broadcast(event, data) {
   });
 }
 
-server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+app.listen(process.env.PORT, '0.0.0.0', function(err) {
+  console.log("Started listening on %s", app.url);
+});
+
+/*server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
-});
+});*/
