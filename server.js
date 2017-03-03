@@ -10,6 +10,11 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
+var app = express();
+
+app.use('/', express.static('dist'));
+
+
 //
 // ## SimpleServer `SimpleServer(obj)`
 //
@@ -20,7 +25,7 @@ var router = express();
 var server = http.createServer(router);
 var io = socketio.listen(server);
 
-router.use(express.static(path.resolve(__dirname, '/dist')));
+router.use(express.static(path.resolve(__dirname, 'dist')));
 var messages = [];
 var sockets = [];
 
