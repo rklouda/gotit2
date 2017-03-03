@@ -20,7 +20,7 @@ var router = express();
 var server = http.createServer(router);
 var io = socketio.listen(server);
 
-router.use(express.static(path.resolve(__dirname, 'dist')));
+router.use(express.static(path.resolve(__dirname, '/dist')));
 var messages = [];
 var sockets = [];
 
@@ -82,9 +82,3 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
 });
-
-var connect = require("connect");
-
-var app = connect().use(connect.static(__dirname + '/public'));
-
-app.listen(8180);
