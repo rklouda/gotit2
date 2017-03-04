@@ -11,6 +11,11 @@ var socketio = require('socket.io');
 var express = require('express');
 
 var app = express();
+var connect = require("connect");
+
+var app = connect.createServer().use(connect.static(__dirname + '/public'));
+
+app.listen(8180);
 
 app.set('port', (process.env.PORT || 5000));
 
