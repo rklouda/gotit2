@@ -10,6 +10,17 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
+var app = express();
+
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function(request, response) {
+  response.render('app/index')
+});
+
+
 
 //
 // ## SimpleServer `SimpleServer(obj)`
@@ -83,3 +94,9 @@ server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
 });
+
+/*
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+*/
