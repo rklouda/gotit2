@@ -10,16 +10,6 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
-var app = express();
-app.set('port', (process.env.PORT || 5000));
-app.use(express.static(__dirname + '/public'));
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-app.get('/', function(request, response) {
-  response.render('/dist/index')
-});
 
 //
 // ## SimpleServer `SimpleServer(obj)`
@@ -31,7 +21,7 @@ var router = express();
 var server = http.createServer(router);
 var io = socketio.listen(server);
 
-router.use(express.static(path.resolve(__dirname, 'dist')));
+router.use(express.static(path.resolve(__dirname, 'client')));
 var messages = [];
 var sockets = [];
 
